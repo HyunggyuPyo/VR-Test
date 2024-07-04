@@ -10,6 +10,8 @@ public class RightLauncher : MonoBehaviour
     private ActionBasedController targetCont;
     private InputActionReference activateRef;
     private LauncherAnimation contAnim;
+    public Transform spawnPos;
+    public GameObject ball;
 
     private IEnumerator Start()
     {
@@ -33,5 +35,10 @@ public class RightLauncher : MonoBehaviour
     private void Awake()
     {
         targetCont = GetComponent<ActionBasedController>();
+    }
+
+    public void OnActivate()
+    {
+        GameObject shot = Instantiate(ball, spawnPos.position, spawnPos.rotation);
     }
 }
